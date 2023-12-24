@@ -4,6 +4,7 @@ using Application.Common.Interfaces.Authentication;
 using Application.Common.Interfaces.Services;
 using Authentication;
 using Domain.Services;
+using Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,11 +26,11 @@ public static class DependencyInjectionRegister
     /// <returns>The modified service collection.</returns>
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddAuth(configuration);
-
-        services.AddPostgres(configuration);
-
-        services.AddSwaggerDocs(configuration);
+        services
+            .AddLogger(configuration)
+            .AddAuth(configuration)
+            .AddPostgres(configuration)
+            .AddSwaggerDocs(configuration);
 
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 

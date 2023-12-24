@@ -45,3 +45,4 @@ backend/Place.Api/nginx/logs/access.log
 backend/Place.Api/nginx/logs/error.log
 backend/Place.Api/logs/error.log
 backend/Place.Api/logs/access.log
+/backend/Place.Api/src/Place.Api.Presentation/logs/

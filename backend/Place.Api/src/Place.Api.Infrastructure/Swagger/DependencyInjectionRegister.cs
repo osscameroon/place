@@ -21,7 +21,7 @@ public static class DependencyInjectionRegister
     /// <returns>The modified service collection.</returns>
     public static IServiceCollection AddSwaggerDocs(this IServiceCollection services, IConfiguration configuration)
     {
-        IConfigurationSection section = configuration.GetSection("swagger");
+        IConfigurationSection section = configuration.GetSection("Swagger");
 
         SwaggerOptions options = section.BindOptions<SwaggerOptions>();
 

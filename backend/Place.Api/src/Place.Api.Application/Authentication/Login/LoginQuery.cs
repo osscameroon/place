@@ -1,6 +1,14 @@
 namespace Place.Api.Application.Authentication.Login;
 
+using Destructurama.Attributed;
 using ErrorOr;
 using MediatR;
 
-public record LoginQuery(string Email, string Password) : IRequest<ErrorOr<LoginResult>>;
+public class LoginQuery : IRequest<ErrorOr<LoginResult>>
+
+{
+    public string Email { get; init; } = null!;
+
+    [NotLogged]
+    public string Password { get; init; } = null!;
+}

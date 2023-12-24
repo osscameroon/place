@@ -1,5 +1,7 @@
 namespace Place.Api.Presentation.Contracts.Authentication;
 
+using Destructurama.Attributed;
+
 /// <summary>
 /// Represents the request payload for user registration.
 /// </summary>
@@ -18,6 +20,7 @@ public record RegisterRequest
     /// Password for the user.
     /// </summary>
     /// <example>OnceUponATime123@</example>
+    [NotLogged]
     public string Password { get; init; } = null!;
 
     /// <summary>

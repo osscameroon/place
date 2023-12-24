@@ -23,6 +23,9 @@ namespace Place.Api.Application
             {
                 cfg.Lifetime = ServiceLifetime.Scoped;
                 cfg.RegisterServicesFromAssembly(typeof(DependencyInjectionRegister).Assembly);
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             });
 
             // Add the ValidationBehavior as a scoped pipeline behavior

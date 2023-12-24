@@ -1,9 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71109049-3185-4D36-832A-9B2FDEE0484D}"
-	ProjectSection(SolutionItems) = preProject
-		src\Directory.Build.props = src\Directory.Build.props
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Place.Api.Presentation", "src\Place.Api.Presentation\Place.Api.Presentation.csproj", "{BDA47B16-6BDA-4D64-B01A-4A2D36FB0479}"
 EndProject
