@@ -15,6 +15,10 @@ public static class DomainErrors
         public static Error DuplicateEmail => Error.Conflict(
             code: "User.DuplicateEmail",
             description: "Email is already in use.");
+
+        public static Error NotFoundEmail => Error.Conflict(
+            code: "User.NotFoundEmail",
+            description: "Email not found.");
     }
 
     public static class Email

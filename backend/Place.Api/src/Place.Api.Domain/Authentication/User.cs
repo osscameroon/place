@@ -183,4 +183,6 @@ public sealed class User : AggregateRoot<UserId, Ulid>, IAuditableEntity, ISoftD
 
         return builder.ToString().Trim();
     }
+
+    public static implicit operator User(void v) => throw new NotImplementedException();
 }

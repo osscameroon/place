@@ -30,4 +30,5 @@ public interface IUserRepository
     /// <param name="email"></param>
     /// <returns><see cref="User"/> or null</returns>
     Task<User?> GetByEmail(string email);
+
 }

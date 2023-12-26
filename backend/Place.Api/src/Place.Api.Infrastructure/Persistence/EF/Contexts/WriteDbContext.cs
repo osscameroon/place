@@ -2,6 +2,7 @@ namespace Place.Api.Infrastructure.Persistence.EF.Contexts;
 
 using Authentication.Configurations;
 using Microsoft.EntityFrameworkCore;
+using Place.Api.Domain;
 using Place.Api.Domain.Authentication;
 using Place.Api.Infrastructure.Persistence.Interceptors;
 
@@ -18,6 +19,11 @@ public sealed class WriteDbContext(DbContextOptions<WriteDbContext> options,
     /// Gets or sets the DbSet for User entities.
     /// </summary>
     public DbSet<User> Users { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets the DbSet for UserOTPVerification entities.
+    /// </summary>
+    public DbSet<UserOTPVerification> UsersOTPVerifation { get; set; } = null!;
 
 
     /// <inheritdoc/>

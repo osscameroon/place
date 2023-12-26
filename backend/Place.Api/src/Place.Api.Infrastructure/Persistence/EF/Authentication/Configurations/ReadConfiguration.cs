@@ -7,7 +7,7 @@ using Models.Converters;
 using Place.Api.Domain.Authentication.ValueObjects;
 using Place.Api.Infrastructure.Persistence.Constants;
 
-internal sealed class ReadConfiguration : IEntityTypeConfiguration<UserReadModel>
+internal sealed class ReadConfiguration : IEntityTypeConfiguration<UserReadModel>, IEntityTypeConfiguration<UserOTPVerificationReadModel>
 {
     public void Configure(EntityTypeBuilder<UserReadModel> builder)
     {
@@ -49,5 +49,28 @@ internal sealed class ReadConfiguration : IEntityTypeConfiguration<UserReadModel
 
         builder.HasKey(user => user.Id);
 
+    }
+
+    public void Configure(EntityTypeBuilder<UserOTPVerificationReadModel> builder)
+    {
+        builder.ToTable(Database.Tables.UserOTPTableName);
+
+        builder.Property(userOTP => userOTP.Id)
+            .HasConversion<UlidToStringConverter>();
+
+        builder.Property(userOTP => userOTP.UserId)
+            .HasConversion<UlidToStringConverter>()
+            .IsRequired();
+
+        builder.Property(userOTP => userOTP.OTP)
+            .IsRequired();
+
+        builder.Property(userOTP => userOTP.CreatedOnUtc)
+            .IsRequired();
+
+        builder.Property(userOTP => userOTP.DeletedOnUtc);
+        builder.Property(userOTP => userOTP.Deleted);
+
+        builder.HasKey(userOTP => userOTP.Id);
     }
 }

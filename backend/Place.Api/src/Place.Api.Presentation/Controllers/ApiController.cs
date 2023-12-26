@@ -59,5 +59,5 @@ public class ApiController : ControllerBase
 
 
     protected IActionResult Created(object objectResult)
-        => new ObjectResult(objectResult) { StatusCode = StatusCodes.Status201Created};
+        => new ObjectResult(objectResult) { StatusCode = StatusCodes.Status201Created };
 }
