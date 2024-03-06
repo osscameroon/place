@@ -17,7 +17,7 @@ public class LoginController(ISender sender, IMapper mapper) : ApiController
         Summary = ApiRoutes.Login.Summary,
         Description = ApiRoutes.Login.Description,
         OperationId = ApiRoutes.Login.OperationId,
-        Tags = new[] { "Authentication"}
+        Tags = ["Authentication"]
     )]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]

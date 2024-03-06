@@ -74,6 +74,33 @@ namespace Place.Api.Infrastructure.Persistence.Migrations
 
                     b.ToTable("users", "place");
                 });
+
+            modelBuilder.Entity("Place.Api.Infrastructure.Persistence.EF.Authentication.Models.UserOTPVerificationReadModel", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("character varying(26)");
+
+                    b.Property<DateTime>("CreatedOnUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("DeletedOnUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("OTP")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<DateTime?>("ModifiedOnUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users_otp", "place");
+                });
 #pragma warning restore 612, 618
         }
     }

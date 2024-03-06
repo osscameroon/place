@@ -22,6 +22,11 @@ namespace Place.Api.Infrastructure.Persistence.EF.Contexts
         /// </summary>
         public DbSet<UserReadModel> Users { get; set; } = null!;
 
+        /// <summary>
+        /// Gets or sets the DbSet for UserOTPVerificationReadModel entities.
+        /// </summary>
+        public DbSet<UserOTPVerificationReadModel> UsersOTPVerification { get; set; } = null!;
+
         /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

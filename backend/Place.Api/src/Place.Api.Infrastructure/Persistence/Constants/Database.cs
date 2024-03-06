@@ -14,6 +14,11 @@ internal static class Database
         /// Gets the name of the user table.
         /// </summary>
         public static string UserTableName => "users";
+
+        /// <summary>
+        /// Gets the name of the user otp table.
+        /// </summary>
+        public static string UserOTPTableName => "users_otp";
     }
 }
 

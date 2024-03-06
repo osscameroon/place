@@ -18,7 +18,7 @@ public class RegisterController(ISender sender, IMapper mapper) : ApiController
         Summary = ApiRoutes.Register.Summary,
         Description = ApiRoutes.Register.Description,
         OperationId = ApiRoutes.Register.OperationId,
-        Tags = new[] { "Authentication"}
+        Tags = ["Authentication"]
     )]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
