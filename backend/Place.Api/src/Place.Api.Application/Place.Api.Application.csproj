@@ -1,26 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>disable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-      <GenerateDocumentationFile>True</GenerateDocumentationFile>
-      <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Destructurama.Attributed" Version="4.0.0" />
-      <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
-      <PackageReference Include="Mediatr" Version="12.2.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
-      <ProjectReference Include="..\Place.Api.Domain\Place.Api.Domain.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Destructurama.Attributed"/>
+    <PackageReference Include="FluentValidation.AspNetCore"/>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="Mediatr"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+    <PackageReference Include="FluentValidation"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="11.8.1" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Place.Api.Domain\Place.Api.Domain.csproj"/>
+  </ItemGroup>
 
-    
 
 </Project>
