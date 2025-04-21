@@ -20,7 +20,7 @@ WORKDIR /opt
 # Copy the environment, but not the source code
 COPY --from=builder --chown=opt:opt /opt /opt
 
-EXPOSE 8080
+EXPOSE 8000
 
 # Run the application
-CMD [".venv/bin/waitress-serve", "--host", "0.0.0.0", "--call", "place:create_app"]
+CMD ["gunicorn", "place.asgi:application", "-k", "uvicorn_worker.UvicornWorker"]

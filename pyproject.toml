@@ -5,10 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "flask>=3.1.0",
+    "django>=5.2",
+    "django-environ>=0.12.0",
+    "pillow>=11.2.1",
 ]
 
 [dependency-groups]
 prod = [
-    "waitress>=3.0.2",
+    "gunicorn>=23.0.0",
+    "uvicorn>=0.34.2",
+    "uvicorn-worker>=0.3.0",
+]
+dev = [
+    "djlint>=1.36.4",
+    "ruff>=0.11.6",
 ]

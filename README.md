@@ -20,11 +20,11 @@ An event application for Cameroon that helps users find events based on their in
 **Run the App**  
   - **With Python:**  
     ```sh
-    python flask --app app run --debug
+    python place/manage.py runserver
     ```  
   - **With UV (Faster):**  
     ```sh
-    uv run flask --app app run --debug
+    uv run place/manage.py runserver
     ```  
   - **With Docker:**  
     ```sh
@@ -32,7 +32,7 @@ An event application for Cameroon that helps users find events based on their in
     ```  
 
 **Access the webapp**  
-  Open your browser at: [http://127.0.0.1:5000/hello](http://127.0.0.1:5000/hello)
+  Open your browser at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## License
 
