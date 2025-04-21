@@ -13,28 +13,26 @@ An event application for Cameroon that helps users find events based on their in
 ### Setup Instructions
 
 **Install Dependencies**  
-   ```sh
-   pip install .
-   ```
+  ```sh
+  pip install .
+  ```
 
 **Run the App**  
-   - **With Python:**  
-     ```sh
-     python flask --app app run --debug
-     ```  
-   - **With UV (Faster):**  
-     ```sh
-     uv run flask --app app run --debug
-     ```  
-   - **With Docker:**  
-     ```sh
-     docker compose up -d
-     ```  
+  - **With Python:**  
+    ```sh
+    python flask --app app run --debug
+    ```  
+  - **With UV (Faster):**  
+    ```sh
+    uv run flask --app app run --debug
+    ```  
+  - **With Docker:**  
+    ```sh
+    docker compose up -d
+    ```  
 
 **Access the webapp**  
-   Open your browser at:  
-   🔗 [http://127.0.0.1:5000/hello](http://127.0.0.1:5000/hello)  
-
+  Open your browser at: [http://127.0.0.1:5000/hello](http://127.0.0.1:5000/hello)
 
 ## License
 

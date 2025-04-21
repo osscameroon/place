@@ -20,7 +20,7 @@ WORKDIR /app
 # Copy the environment, but not the source code
 COPY --from=builder --chown=app:app /app /app
 
-EXPOSE 8000
+EXPOSE 8080
 
 # Run the application
 CMD [".venv/bin/waitress-serve", "--host", "0.0.0.0", "--call", "app:create_app"]
