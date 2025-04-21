@@ -36,4 +36,4 @@ An event application for Cameroon that helps users find events based on their in
 
 ## License
 
-This project is open-source under the **[MPL-v2 License](LICENSE)**.  
+All the code in this repository is released under the Mozilla Public License v2.0, for more information take a look at the [LICENSE](LICENSE) file.
