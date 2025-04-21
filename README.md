@@ -36,4 +36,4 @@ An event application for Cameroon that helps users find events based on their in
 
 ## License
 
-This project is open-source under the **[MIT License](LICENSE)**.  
+This project is open-source under the **[MPL-v2 License](LICENSE)**.  
