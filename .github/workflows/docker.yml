@@ -1,0 +1,15 @@
+name: CI docker
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image
+        run: |
+          docker build -t place .
+      - name: Test the image
+        run: |
+          docker run -d -p 8080:8080 place
+          sleep 1
+          curl -sI http://127.0.0.1:8080/hello | grep 'HTTP/1.1 200 OK'
