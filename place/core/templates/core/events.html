@@ -1,0 +1,38 @@
+<div class="card" id="events">
+    <div class="card-body">
+        <div class="row">
+            {% for event in page_events %}
+                <div class="col-md-6 col-lg-4 my-2">{% include "core/event.html" with event=event %}</div>
+            {% empty %}
+                <p>No event for the moment.</p>
+            {% endfor %}
+        </div>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {{ page_events.has_previous|default:"disabled" }}">
+                    <a class="page-link"
+                       href="#"
+                       tabindex="-1"
+                       hx-trigger="click"
+                       hx-target="#events"
+                       hx-swap="outerHTML"
+                       hx-get="{% url 'htmx-events' %}"
+                       hx-vals='{"page": "{{ page_events.number|add:-1 }}"}'>Previous</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">{{ page_events.number }} of {{ page_events.paginator.num_pages }}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link {{ page_events.has_next|default:"disabled" }}"
+                       href="#"
+                       hx-trigger="click"
+                       hx-target="#events"
+                       hx-swap="outerHTML"
+                       hx-get="{% url 'htmx-events' %}"
+                       hx-vals='{"page": "{{ page_events.number|add:1 }}"}'>Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+}
+
+.category-btn {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.event-card {
+    transition: transform 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    border-bottom: 3px solid #0d6efd;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto;
+}

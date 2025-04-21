@@ -1,0 +1,216 @@
+{% extends "core/base.html" %}
+{% load humanize %}
+{% block hero %}
+    <!-- Hero Section with Search -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Discover Amazing Events</h1>
+            <p class="lead mb-5">Find the best concerts, workshops, and gatherings in your area</p>
+            <form action="#events" class="search-box">
+                <div class="input-group mb-3">
+                    <input type="text"
+                           class="form-control form-control-lg"
+                           name="query"
+                           placeholder="Search for events..."
+                           hx-trigger="input changed delay:500ms, keyup[key=='Enter']"
+                           hx-target="#events"
+                           hx-swap="outerHTML"
+                           hx-get="{% url 'htmx-events' %}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock hero %}
+{% block content %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-funnel"></i> Filters
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Categories Filter -->
+                        <h6 class="fw-bold mt-3 mb-2">
+                            <i class="bi bi-tags"></i> Categories
+                        </h6>
+                        <div class="d-flex flex-wrap">
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="category"
+                                   id="category-x"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"category": ""}'
+                                   checked>
+                            <label class="btn btn-outline-primary btn-sm me-2 mb-2" for="category-x">All</label>
+                            {% for category in categories %}
+                                <input type="radio"
+                                       class="btn-check"
+                                       name="category"
+                                       id="category-{{ category.id }}"
+                                       autocomplete="off"
+                                       hx-trigger="click"
+                                       hx-target="#events"
+                                       hx-swap="outerHTML"
+                                       hx-get="{% url 'htmx-events' %}"
+                                       hx-vals='{"category": "{{ category.id }}"}'>
+                                <label class="btn btn-outline-primary btn-sm me-2 mb-2"
+                                       for="category-{{ category.id }}">
+                                    <i class="bi bi-{{ category.icon }}"></i> {{ category.name }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Location Type Filter -->
+                        <h6 class="fw-bold mt-3 mb-2">
+                            <i class="bi bi-geo-alt"></i> Location Type
+                        </h6>
+                        <div class="btn-group w-100 mb-3" role="group">
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="location_type"
+                                   id="allLocations"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"location_type": "hybrid"}'
+                                   checked>
+                            <label class="btn btn-outline-primary btn-sm" for="allLocations">All</label>
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="location_type"
+                                   id="remoteEvents"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"location_type": "remote"}'>
+                            <label class="btn btn-outline-primary btn-sm" for="remoteEvents">
+                                <i class="bi bi-laptop"></i> Remote
+                            </label>
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="location_type"
+                                   id="onsiteEvents"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"location_type": "onsite"}'>
+                            <label class="btn btn-outline-primary btn-sm" for="onsiteEvents">
+                                <i class="bi bi-geo-alt-fill"></i> Onsite
+                            </label>
+                        </div>
+                        <!-- Date Filter -->
+                        <h6 class="fw-bold mt-4 mb-2">
+                            <i class="bi bi-calendar"></i> When
+                        </h6>
+                        <div class="btn-group-vertical w-100"
+                             role="group"
+                             aria-label="Basic radio toggle button group">
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="period"
+                                   id="btnToday"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"period": "today"}'>
+                            <label class="btn btn-outline-primary" for="btnToday">
+                                <i class="bi bi-sun"></i> Today
+                            </label>
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="period"
+                                   id="btnWeek"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"period": "this_week"}'
+                                   checked>
+                            <label class="btn btn-outline-primary" for="btnWeek">
+                                <i class="bi bi-calendar-week"></i> This Week
+                            </label>
+                            <input type="radio"
+                                   class="btn-check"
+                                   name="period"
+                                   id="btnNext"
+                                   autocomplete="off"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}"
+                                   hx-vals='{"period": "next_weeks"}'>
+                            <label class="btn btn-outline-primary" for="btnNext">
+                                <i class="bi bi-calendar-month"></i> Upcoming
+                            </label>
+                        </div>
+                        <!-- Price Filter -->
+                        <h6 class="fw-bold mt-4 mb-2">
+                            <i class="bi bi-currency-dollar"></i> Price
+                        </h6>
+                        <div class="form-check">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   id="freeEvents"
+                                   name="free"
+                                   hx-trigger="click"
+                                   hx-target="#events"
+                                   hx-swap="outerHTML"
+                                   hx-get="{% url 'htmx-events' %}?free=">
+                            <label class="form-check-label" for="freeEvents">Free Only</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Events Listing -->
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0">Upcoming Events</h3>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown">
+                            <i class="bi bi-sort-down"></i> Sort By
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">Nearest</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">More popular</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Date</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Price</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div hx-trigger="load"
+                     hx-swap="outerHTML"
+                     hx-get="{% url 'htmx-events' %}?{{ request.META.QUERY_STRING }}"></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
