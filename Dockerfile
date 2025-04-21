@@ -2,7 +2,7 @@ FROM python:3.13-slim-bookworm AS builder
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Change the working directory to the `app` directory
-WORKDIR /app
+WORKDIR /opt
 
 # Install dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
@@ -11,16 +11,16 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable --no-dev --group prod
 
 # Copy the project into the intermediate image
-ADD . /app
+ADD ./app /opt/place
 
 FROM python:3.13-slim-bookworm
 
-WORKDIR /app
+WORKDIR /opt
 
 # Copy the environment, but not the source code
-COPY --from=builder --chown=app:app /app /app
+COPY --from=builder --chown=opt:opt /opt /opt
 
 EXPOSE 8080
 
 # Run the application
-CMD [".venv/bin/waitress-serve", "--host", "0.0.0.0", "--call", "app:create_app"]
+CMD [".venv/bin/waitress-serve", "--host", "0.0.0.0", "--call", "place:create_app"]
