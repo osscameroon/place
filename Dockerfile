@@ -11,7 +11,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable --no-dev --group prod
 
 # Copy the project into the intermediate image
-ADD ./app /opt/place
+ADD ./place/place /opt/place
 
 FROM python:3.13-slim-bookworm
 
@@ -20,7 +20,7 @@ WORKDIR /opt
 # Copy the environment, but not the source code
 COPY --from=builder --chown=opt:opt /opt /opt
 
-EXPOSE 8080
+EXPOSE 8000
 
 # Run the application
-CMD [".venv/bin/waitress-serve", "--host", "0.0.0.0", "--call", "place:create_app"]
+CMD [".venv/bin/gunicorn", "place.asgi:application", "-k", "uvicorn_worker.UvicornWorker", "-b", "0.0.0.0:8000"]
