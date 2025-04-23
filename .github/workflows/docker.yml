@@ -10,6 +10,6 @@ jobs:
           docker build -t place .
       - name: Test the image
         run: |
-          docker run -d -p 8080:8080 place
+          docker run -d -p 8000:8000 place
           sleep 1
-          curl -sI http://127.0.0.1:8080 | grep 'HTTP/1.1 200 OK'
+          curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'
