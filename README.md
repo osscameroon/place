@@ -13,17 +13,23 @@ An event application for Cameroon that helps users find events based on their in
 ### Setup Instructions
 
 **Install Dependencies**  
-  ```sh
-  pip install .
   ```
+  - **With Python:**  
+    ```sh
+    pip install .
+    ```  
+  - **With UV (Faster):** No needed 
+  - **With Docker:**  No needed 
 
 **Setup**
   - **With Python:**  
     ```sh
+    python place/manage.py makemigrations
     python place/manage.py migrate
     ```  
   - **With UV (Faster):**  
     ```sh
+    uv run place/manage.py makemigrations
     uv run place/manage.py migrate
     ```  
   - **With Docker:**  No needed 

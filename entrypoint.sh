@@ -5,6 +5,7 @@ PATH="$PATH:.venv/bin/"
 set -ex
 
 .venv/bin/python manage.py collectstatic --noinput
+.venv/bin/python manage.py makemigrations --noinput
 .venv/bin/python manage.py migrate --noinput
 
 if [ -z "$@" ]; then
