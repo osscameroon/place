@@ -1,6 +1,7 @@
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.utils import timezone
+
+from django.shortcuts import reverse
 
 
 # Create your models here.

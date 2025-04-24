@@ -23,7 +23,7 @@ def htmx_events(request):
     if (
         not request.GET
         or "query" in request.GET
-        or not "event_filters" in request.session
+        or "event_filters" not in request.session
     ):
         request.session["event_filters"] = {}
     else:

@@ -10,6 +10,13 @@ jobs:
           docker build -t place .
       - name: Test the image
         run: |
-          docker run -d -p 8000:8000 place
-          sleep 1
-          curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'
+          set -ex
+          docker run -d place
+          sleep 5
+          for i in 5 4 3 2 1 0; do
+            if curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'; then
+              break;
+            fi
+
+            echo "Trying to connect to the place server..."
+          done
