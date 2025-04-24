@@ -1,0 +1,132 @@
+{% extends "core/_base.html" %}
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-white bg-white">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-calendar-event me-2"></i>
+            Place Cameroon</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block hero %}
+    {% endblock hero %}
+    <div class="container mt-3">
+        {% block content %}
+            Hello World!
+        {% endblock content %}
+    </div>
+    <!-- Alternative Footer Design -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Brand & Description -->
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-calendar-event fs-3 me-2"></i>
+                        <span class="h4 mb-0">Place Cameroon</span>
+                    </div>
+                    <p class="mb-3">A place to discover events near of you.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-tiktok fs-5"></i></a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-6 col-md-3 col-lg-2 mb-4">
+                    <h5 class="mb-3 border-bottom pb-2">Explorer</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="text-white text-decoration-none">Events</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white text-decoration-none">Categories</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white text-decoration-none">Top Events</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white text-decoration-none">Free events</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- About Section -->
+                <div class="col-6 col-md-3 col-lg-2 mb-4">
+                    <h5 class="mb-3 border-bottom pb-2">About</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="https://github.com/osscameroon/place"
+                               class="text-white text-decoration-none"
+                               target="_blank">
+                                <i class="bi bi-github"></i> Source Code
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://opencollective.com/osscameroon"
+                               class="text-white text-decoration-none"
+                               target="_blank">
+                                <i class="bi bi-heart-fill text-danger"></i> Donate
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/about" class="text-white text-decoration-none">
+                                <i class="bi bi-people-fill"></i> Our Mission
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contribute" class="text-white text-decoration-none">
+                                <i class="bi bi-code-slash"></i> Contribute
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="mb-3 border-bottom pb-2">Stay Updated</h5>
+                    <p>Subscribe to our newsletter for the best events.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="bi bi-envelope-arrow-up"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Bottom Bar -->
+            <div class="row mt-4 pt-3 border-top">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <small class="d-block">© 2025 OSS Cameroon, All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>
+                        <a href="#" class="text-white text-decoration-none me-3">Terms</a>
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy</a>
+                        <a href="#" class="text-white text-decoration-none">Cookies</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock body %}

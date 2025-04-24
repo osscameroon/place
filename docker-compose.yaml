@@ -1,6 +1,16 @@
 services:
-  app:
+  place-web:
     image: place
     build: .
+    volumes:
+      - static_data:/opt/staticfiles
+  place-nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - static_data:/opt/staticfiles:ro
     ports:
-      - 8080:8000
+      - 8000:80
+
+volumes:
+  static_data:

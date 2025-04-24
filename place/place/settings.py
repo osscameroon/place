@@ -18,7 +18,9 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    SECRET_KEY=(str, "insecure"), DEBUG=(bool, True), ALLOWED_HOSTS=(list, [])
+    SECRET_KEY=(str, "insecure"),
+    DEBUG=(bool, True),
+    ALLOWED_HOSTS=(list, []),
 )
 # reading .env file
 environ.Env.read_env(BASE_DIR / ".env")
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
@@ -126,6 +129,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

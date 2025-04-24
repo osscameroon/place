@@ -1,0 +1,23 @@
+<div class="card event-card h-100">
+    <img src="https://bulma.io/assets/images/placeholders/128x128.png"
+         class="card-img-top"
+         alt="Event">
+    <div class="card-body">
+        <span class="badge bg-success mb-2">{{ event.get_location_type_display }}</span>
+        <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text text-muted">
+            <i class="bi bi-calendar"></i> {{ event.datetime.date }}
+            <br>
+            <i class="bi bi-clock"></i> {{ event.datetime.time }}
+            <br>
+            <i class="bi bi-geo-alt"></i> {{ event.location }}
+        </p>
+        <p class="card-text">{{ event.description }}</p>
+    </div>
+    <div class="card-footer bg-white border-top-0">
+        <a href="#" class="btn btn-sm btn-primary">Details</a>
+        <a href="#" class="btn btn-sm btn-outline-secondary ms-2">
+            <i class="bi bi-bookmark"></i>
+        </a>
+    </div>
+</div>

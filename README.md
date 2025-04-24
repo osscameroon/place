@@ -17,6 +17,17 @@ An event application for Cameroon that helps users find events based on their in
   pip install .
   ```
 
+**Setup**
+  - **With Python:**  
+    ```sh
+    python place/manage.py migrate
+    ```  
+  - **With UV (Faster):**  
+    ```sh
+    uv run place/manage.py migrate
+    ```  
+  - **With Docker:**  No needed 
+
 **Run the App**  
   - **With Python:**  
     ```sh
@@ -29,6 +40,20 @@ An event application for Cameroon that helps users find events based on their in
   - **With Docker:**  
     ```sh
     docker compose up -d
+    ```  
+
+**Loading the dummy data**
+  - **With Python:**  
+    ```sh
+    python place/manage.py shell -c "import core.dummy_data"
+    ```  
+  - **With UV (Faster):**  
+    ```sh
+    uv run place/manage.py shell -c "import core.dummy_data"
+    ```  
+  - **With Docker:**  
+    ```sh
+    docker compose exec place-web shell -c \"import core.dummy_data\"
     ```  
 
 **Access the webapp**  

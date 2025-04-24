@@ -11,7 +11,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable --no-dev --group prod
 
 # Copy the project into the intermediate image
-ADD ./place/place /opt/place
+ADD ./place /opt
 
 FROM python:3.13-slim-bookworm
 
@@ -22,5 +22,8 @@ COPY --from=builder --chown=opt:opt /opt /opt
 
 EXPOSE 8000
 
+# entrypoint, must be executable file chmod +x entrypoint.sh
+COPY entrypoint.sh .
+
 # Run the application
-CMD [".venv/bin/gunicorn", "place.asgi:application", "-k", "uvicorn_worker.UvicornWorker", "-b", "0.0.0.0:8000"]
+ENTRYPOINT ["./entrypoint.sh"]
