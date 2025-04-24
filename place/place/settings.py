@@ -21,7 +21,6 @@ env = environ.Env(
     SECRET_KEY=(str, "insecure"),
     DEBUG=(bool, True),
     ALLOWED_HOSTS=(list, []),
-    STATIC_ROOT=(str, "/var/www/static/"),
 )
 # reading .env file
 environ.Env.read_env(BASE_DIR / ".env")
@@ -130,7 +129,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATIC_ROOT = env("STATIC_ROOT")
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

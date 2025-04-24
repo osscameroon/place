@@ -53,7 +53,7 @@ An event application for Cameroon that helps users find events based on their in
     ```  
   - **With Docker:**  
     ```sh
-    docker compose exec place ./load_dummy_data.sh
+    docker compose exec place-web shell -c \"import core.dummy_data\"
     ```  
 
 **Access the webapp**  

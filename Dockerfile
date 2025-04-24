@@ -26,4 +26,4 @@ EXPOSE 8000
 COPY entrypoint.sh .
 
 # Run the application
-CMD ["./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
