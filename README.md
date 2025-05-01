@@ -1,5 +1,7 @@
 # place
 
+![Screenshot From 2025-05-01 21-09-07](https://github.com/user-attachments/assets/d62aabeb-3c84-49a2-b12d-a0056b3a2877)
+
 An event application for Cameroon that helps users find events based on their interests, location, and availability.
 
 ## Deployment Guide
@@ -13,7 +15,6 @@ An event application for Cameroon that helps users find events based on their in
 ### Setup Instructions
 
 **Install Dependencies**  
-  ```
   - **With Python:**  
     ```sh
     pip install .
@@ -59,7 +60,7 @@ An event application for Cameroon that helps users find events based on their in
     ```  
   - **With Docker:**  
     ```sh
-    docker compose exec place-web shell -c \"import core.dummy_data\"
+    docker compose exec place-web ./entrypoint.sh shell -c \"import core.dummy_data\"
     ```  
 
 **Access the webapp**  
