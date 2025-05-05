@@ -3,12 +3,12 @@ services:
     image: place
     build: .
     volumes:
-      - static_data:/opt/staticfiles
+      - static_data:/app/staticfiles
   place-nginx:
     image: nginx:latest
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - static_data:/opt/staticfiles:ro
+      - static_data:/app/staticfiles:ro
     ports:
       - 8000:80
 

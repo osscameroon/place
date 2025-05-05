@@ -4,67 +4,107 @@
 
 An event application for Cameroon that helps users find events based on their interests, location, and availability.
 
-## Deployment Guide
+## Table of Contents
+* **[Installation](#installation)**
+  * [uv](#uv)
+  * [Pip](#pip)
+  * [Docker](#docker)
+* [Contributing](#contributing)
+* [Support](#support)
+* [License](#license)
 
-### Prerequisites 
+## 📖 Installation
 
-- **Python 3.11+** ([Download](https://python.org))  
+Place can be installed via Pip or Docker. To start, clone the repo to your local computer and change into the proper directory.
+
+### 🧰 Prerequisites 
+
+- **Python 3.13+** ([Download](https://python.org))  
 - **Docker** (Optional) ([Install Docker](https://docs.docker.com/get-started/get-docker/))  
-- **UV** (Optional, for fast Python management) ([Install UV](https://docs.astral.sh/uv/getting-started/installation/))  
+- **UV** (Optional, for fast Python package management) ([Install UV](https://docs.astral.sh/uv/getting-started/installation/))  
 
-### Setup Instructions
+### Install Dependencies
 
-**Install Dependencies**  
-  - **With Python:**  
-    ```sh
-    pip install .
-    ```  
-  - **With UV (Faster):** No needed 
-  - **With Docker:**  No needed 
+- With Pip:
 
-**Setup**
-  - **With Python:**  
-    ```sh
-    python place/manage.py makemigrations
-    python place/manage.py migrate
-    ```  
-  - **With UV (Faster):**  
-    ```sh
-    uv run place/manage.py makemigrations
-    uv run place/manage.py migrate
-    ```  
-  - **With Docker:**  No needed 
+```sh
+pip install .
+```
 
-**Run the App**  
-  - **With Python:**  
-    ```sh
-    python place/manage.py runserver
-    ```  
-  - **With UV (Faster):**  
-    ```sh
-    uv run place/manage.py runserver
-    ```  
-  - **With Docker:**  
-    ```sh
-    docker compose up -d
-    ```  
+- With uv:
 
-**Loading the dummy data**
-  - **With Python:**  
-    ```sh
-    python place/manage.py shell -c "import core.dummy_data"
-    ```  
-  - **With UV (Faster):**  
-    ```sh
-    uv run place/manage.py shell -c "import core.dummy_data"
-    ```  
-  - **With Docker:**  
-    ```sh
-    docker compose exec place-web ./entrypoint.sh shell -c \"import core.dummy_data\"
-    ```  
+```sh
+uv sync
+```
+
+- With Docker: Not needed
+
+### Setup
+
+- With Python:
+
+```sh
+python place/manage.py migrate
+```
+
+- With uv:
+
+```sh
+uv run place/manage.py migrate
+```
+ 
+- With Docker: Not needed 
+
+### Run the App
+
+- With Python:
+
+```sh
+python place/manage.py runserver
+```
+
+- With uv:
+
+```sh
+uv run place/manage.py runserver
+```
+
+- With Docker: 
+
+```sh
+docker compose up -d
+```  
+
+### Load the dummy data
+
+- With Python:
+
+```sh
+python place/manage.py shell -c "import core.dummy_data"
+```
+  
+- With uv:
+
+```sh
+uv run place/manage.py shell -c "import core.dummy_data"
+```
+
+- With Docker:
+
+```sh
+docker compose exec place ./entrypoint.sh shell -c \"import core.dummy_data\"
+```
 
 **Access the webapp**  
-  Open your browser at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+  Open your browser at: [http://127.0.0.1:8000](http://127.0.0.1:8000) or [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) for the admin
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! See [CONTRIBUTING.md](https://github.com/wsvincent/lithium/blob/master/CONTRIBUTING.md).
+
+## ⭐️ Support
+
+Give a ⭐️  if this project helped you!
 
 ## License
 
