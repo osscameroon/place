@@ -19,7 +19,7 @@ Place can be installed via Pip or Docker. To start, clone the repo to your local
 
 ### 🧰 Prerequisites 
 
-- **Python 3.13+** ([Download](https://python.org))  
+- **Python 3.11+** ([Download](https://python.org))  
 - **Docker** (Optional) ([Install Docker](https://docs.docker.com/get-started/get-docker/))  
 - **UV** (Optional, for fast Python package management) ([Install UV](https://docs.astral.sh/uv/getting-started/installation/))  
 
