@@ -1,0 +1,34 @@
+baseURL = 'https://place.osscameroon.com/'
+locale = 'en-us'
+title = 'Place'
+theme = "pehtheme"
+canonifyURLs = true
+enableRobotsTXT = true
+
+[sitemap]
+    changefreq = "weekly"
+    priority = 0.5
+
+[permalinks]
+    posts = "/:year/:month/:slug/"
+    page = "/:slug/"
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 20
+
+[[menus.main]]
+name = 'Tags'
+pageRef = '/tags'
+weight = 30
+
+[[menus.main]]
+name = 'Categories'
+pageRef = '/categories'
+weight = 40

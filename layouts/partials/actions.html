@@ -1,0 +1,17 @@
+<ul id="social-btns" class="not-prose flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto">
+    <li class="font-semibold my-4">Share On</li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank">Facebook</a></li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Params.title | transform.HTMLEscape }}" target="_blank">Twitter</a></li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" target="_blank">LinkedIn</a></li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href="https://wa.me/?text={{ .Params.title | transform.HTMLEscape }}%20{{ .Permalink }}" target="_blank">WhatsApp</a></li>
+</ul>
+
+<ul id="cal-btns" class="not-prose flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto">
+    <li class="font-semibold my-4">Add to calendar</li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href='{{ .Permalink | safeURL }}index.ics' target="_blank">Calendar (.ics)</a></li>
+    {{ with .OutputFormats.Get "Calendar" }}
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href='{{ .Permalink | safeURL }}' target="_blank">Calendar</a></li>
+    {{ end }}
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href='https://outlook.live.com/calendar/0/addevent?startdt={{ .Date.Format "20060102T150405Z" }}&enddt={{ .Date.Format "20060102T150405Z" }}&subject={{ .Params.title | transform.HTMLEscape }}&body={{ .Params.description | transform.HTMLEscape }}&location={{ .Params.location | transform.HTMLEscape }}' target="_blank">Outlook</a></li>
+    <li><a class="py-2 px-6 border rounded-full hover:bg-zinc-100 active:bg-zinc-300" href='https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ .Params.title | transform.HTMLEscape }}&dates={{ .Date.Format "20060102T150405Z" }}/{{ .Date.Format "20060102T150405Z" }}&details={{ .Params.description | transform.HTMLEscape }}&location={{ .Params.location | transform.HTMLEscape }}' target="_blank">Google Calendar</a></li>
+</ul>
