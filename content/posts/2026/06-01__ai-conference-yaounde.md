@@ -16,7 +16,6 @@ tags:
   - robotics
   - yaounde
   - cameroon
-  - feature
 draft: false
 
 ---

@@ -15,7 +15,6 @@ tags:
   - microsoft
   - software development
   - cameroon
-  - feature
 draft: false
 
 ---
