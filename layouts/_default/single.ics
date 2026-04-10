@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Place//OSSCAMEROON//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:{{ md5 (printf "%s-%s" .Params.title (.Date.Format "2006-01-02" )) }}
+DTSTART:{{ .Date.Format "20060102T150405Z" }}
+SUMMARY:{{ .Params.title }}
+DESCRIPTION:{{ .Params.description }}
+LOCATION:{{ .Params.location }}
+URL:{{ .Permalink }}
+END:VEVENT
+END:VCALENDAR

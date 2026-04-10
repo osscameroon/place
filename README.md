@@ -1,111 +1,158 @@
-# place
+# Place — Find Your Next Experience
 
-![Screenshot From 2025-05-01 21-09-07](https://github.com/user-attachments/assets/d62aabeb-3c84-49a2-b12d-a0056b3a2877)
+![Hugo version](https://img.shields.io/badge/Hugo-v0.159.2%2Bextended-ff4088?style=flat&logo=hugo)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-An event application for Cameroon that helps users find events based on their interests, location, and availability.
+**Place** is an event discovery platform designed for young adults who want to go out, learn something new, or connect with others — but don’t know where to start. This repository contains the full Hugo source code for the Place website.
 
-## Table of Contents
-* **[Installation](#installation)**
-  * [uv](#uv)
-  * [Pip](#pip)
-  * [Docker](#docker)
-* [Contributing](#contributing)
-* [Support](#support)
-* [License](#license)
+> 🚀 Live demo: [place.osscameroon.com](https://place.osscameroon.com)
 
-## 📖 Installation
+---
 
-Place can be installed via Pip or Docker. To start, clone the repo to your local computer and change into the proper directory.
+## ✨ Features
 
-### 🧰 Prerequisites 
+- 📤 Share events, add to calendar, and view original source  
+- 📱 Fully responsive — works on desktop, tablet, and mobile  
+- ⚡ Built with Hugo (extended) for lightning-fast static generation  
 
-- **Python 3.11+** ([Download](https://python.org))  
-- **Docker** (Optional) ([Install Docker](https://docs.docker.com/get-started/get-docker/))  
-- **UV** (Optional, for fast Python package management) ([Install UV](https://docs.astral.sh/uv/getting-started/installation/))  
+---
 
-### Install Dependencies
+## 🛠️ Built With
 
-- With Pip:
+- [Hugo v0.159.2+extended](https://gohugo.io/)  
+- HTML5 / CSS3 / JavaScript  
+- [Tailwind CSS](https://tailwindcss.com/)  
 
-```sh
-pip install .
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- [Hugo extended](https://gohugo.io/installation/) v0.159.2 or higher  
+- Git
+
+### Installation
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/osscameroon/place.git
+   cd place
+   ```
+
+2. Run the development server  
+   ```bash
+   hugo server -DF
+   ```
+
+3. Open your browser at `http://localhost:1313`
+
+### Build for Production
+
+```bash
+hugo --minify -F
 ```
 
-- With uv:
+The static site will be generated in the `public/` directory.
 
-```sh
-uv sync
+---
+
+## 📂 Project Structure
+
+```
+place/
+├── assets/          # SCSS, JS, images
+├── content/         # Event pages and site content
+│   └── posts/       # Individual event markdown files
+├── data/            # External data (if any)
+├── layouts/         # HTML templates
+├── static/          # Static files (favicons, robots.txt)
+├── hugo.toml        # Hugo configuration
+└── theme.toml       # Theme metadata (if using as a theme)
 ```
 
-- With Docker: Not needed
+---
 
-### Setup
+## 🧩 Adding Events
 
-- With Python:
+Events are stored as markdown files in `content/events/`. Example:
 
-```sh
-python place/manage.py migrate
+```yaml
+---
+title: "LibreLocal Meetup Douala - Free Software Community Gathering"
+date: 2026-04-11T13:00:00+01:00
+slug: /librelocal-douala-2026/
+description: Free Software community meetup in Douala to discuss productivity using free software, bilingual event in French and English
+image: http://static.fsf.org/nosvn/stickers/fsf.svg
+caption: LibreLocal meetup gathering for free software community
+location: "SmartWork Co-Workspace, near Eneo Ndokoti, Douala, Cameroon"
+categories:
+  - workshop
+  - training
+tags:
+  - free software
+  - productivity
+  - technology
+  - douala
+  - cameroon
+  - open source
+  - feature
+draft: false
+---
+
+**Start Date & Time:** April 11, 2026 at 1:00 PM (13:00 WAT)
+
+**End Date & Time:** April 11, 2026 at 2:00 PM (14:00 WAT)
+
+**Exact Location:** SmartWork Co-Workspace, near Eneo Ndokoti, Douala, Cameroon (GPS: 4.0413807, 9.7344161)
+
+**Registration:** https://form.jotform.com/260934830045051
+
+Join the free software community in Douala for an inspiring meetup focused on gaining productivity using free software. This volunteer-organized community gathering is part of the LibreLocal initiative by the Free Software Foundation. The event will discuss how free software tools can enhance professional productivity and features interactive discussions. Bilingual environment (French & English) welcomed.
+
+**Learn More:** https://www.fsf.org/events/meetup-2026-04-11-duoala-cameroon
+
+**Source:** https://www.fsf.org
 ```
 
-- With uv:
+Each event automatically appears in the grid with interaction buttons (share, calendar, tags).
 
-```sh
-uv run place/manage.py migrate
-```
- 
-- With Docker: Not needed 
+---
 
-### Run the App
+## 🚀 Deployment
 
-- With Python:
+The site is static and can be deployed anywhere:
 
-```sh
-python place/manage.py runserver
-```
+- **Netlify** / **Vercel** – Connect your GitHub repo and set build command to `hugo -F --minify`
+- **GitHub Pages** – Use Hugo’s built-in GitHub Actions workflow
+- **Any static hosting** – Upload the `public/` folder
 
-- With uv:
-
-```sh
-uv run place/manage.py runserver
-```
-
-- With Docker: 
-
-```sh
-docker compose up -d
-```  
-
-### Load the dummy data
-
-- With Python:
-
-```sh
-python place/manage.py shell -c "import core.dummy_data"
-```
-  
-- With uv:
-
-```sh
-uv run place/manage.py shell -c "import core.dummy_data"
-```
-
-- With Docker:
-
-```sh
-docker compose exec place ./entrypoint.sh shell -c \"import core.dummy_data\"
-```
-
-**Access the webapp**  
-  Open your browser at: [http://127.0.0.1:8000](http://127.0.0.1:8000) or [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) for the admin
+---
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome! See [CONTRIBUTING.md](https://github.com/wsvincent/lithium/blob/master/CONTRIBUTING.md).
+Contributions are welcome! Please open an issue or pull request for:
 
-## ⭐️ Support
+- New event categories
+- UI/UX improvements
+- Accessibility fixes
+- Performance optimizations
+- Localizations
 
-Give a ⭐️  if this project helped you!
+---
 
-## License
+## 📄 License
 
-All the code in this repository is released under the Mozilla Public License v2.0, for more information take a look at the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 💬 Acknowledgments
+
+- Inspired by the need for a cleaner, more social event discovery platform  
+- Built with ❤️  for young adults ready to explore their city
+
+---
+
+**Your next story is waiting.**  
+*From quiet workshops to crowded meetups, every event on Place is a chance to grow, meet someone new, or just break your routine.*
