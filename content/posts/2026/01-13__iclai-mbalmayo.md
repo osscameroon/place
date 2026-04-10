@@ -16,7 +16,6 @@ tags:
   - research
   - mbalmayo
   - cameroon
-  - feature
 draft: false
 
 ---

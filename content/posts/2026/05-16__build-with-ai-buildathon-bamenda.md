@@ -17,7 +17,6 @@ tags:
   - tensorflow
   - bamenda
   - cameroon
-  - feature
 draft: false
 
 ---

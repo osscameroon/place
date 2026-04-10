@@ -16,7 +16,6 @@ tags:
   - hosting
   - africa
   - cameroon
-  - feature
 draft: false
 
 ---

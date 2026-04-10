@@ -17,7 +17,6 @@ tags:
   - digital transformation
   - yaounde
   - cameroon
-  - feature
 draft: false
 
 ---

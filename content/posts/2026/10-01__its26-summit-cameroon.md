@@ -16,7 +16,6 @@ tags:
   - entrepreneurship
   - fintech
   - cameroon
-  - feature
 draft: false
 
 ---

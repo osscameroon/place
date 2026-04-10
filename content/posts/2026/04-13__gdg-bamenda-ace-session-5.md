@@ -16,7 +16,6 @@ tags:
   - cloud computing
   - bamenda
   - cameroon
-  - feature
 draft: false
 
 ---
