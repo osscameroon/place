@@ -38,6 +38,8 @@
    ```bash
    git clone https://github.com/osscameroon/place.git
    cd place
+   # Clone the hugo theme
+   git submodule update --init --recursive
    ```
 
 2. Run the development server  
@@ -75,7 +77,43 @@ place/
 
 ## 🧩 Adding Events
 
-Events are stored as markdown files in `content/events/`. Example:
+Events are stored as Markdown files inside `content/events/`.  
+To add a new event:
+
+1. Create a new file (e.g., `2026-04-11__my-event.md`).  
+2. Write the **front matter** (YAML block) at the top.  
+3. Add the full description in Markdown below the front matter.
+
+---
+
+### Required vs. optional fields
+
+| Field | Required? | Description |
+|-------|-----------|-------------|
+| `title` | **Required** | Event name (appears on cards and detail pages). |
+| `date` | **Required** | Start date/time in ISO format (e.g. `2026-04-11T13:00:00+01:00`). |
+| `description` | **Required** | Short summary (used on cards and meta tags). |
+| `location` | **Required** | Physical address of the event. |
+| `categories` | **Required** | One or more categories (e.g. `workshop`, `training`, `social`). |
+| `slug` | Optional | Custom URL path. If omitted, Hugo uses the filename. |
+| `image` | Optional | URL to a cover image (shown on the card). |
+| `caption` | Optional | Image caption (displayed below the image). |
+| `tags` | Optional | Extra keywords for filtering (e.g. `free software`, `douala`). |
+| `draft` | Optional | Set to `true` to hide the event while you work on it. |
+| `end_date` | Optional | End date/time (ISO format). If missing, the event is assumed to last 1 hour (used for the calendar feed). |
+| `organizer_name` | Optional | Name of the organising person or group. |
+| `organizer_email` | Optional | Email of the organiser (must be used together with `organizer_name`). |
+| `status` | Optional | Event status: `confirmed`, `tentative`, or `cancelled`. Defaults to `confirmed`. |
+
+---
+
+**Quick summary:**  
+- You **must** provide `title`, `date`, `description`, `location`, and at least one `category`.  
+- **Everything else is optional** – add them only when you need extra details like a cover image, end time, tags, or organiser info.
+
+---
+
+### Example event file
 
 ```yaml
 ---
@@ -115,9 +153,7 @@ Join the free software community in Douala for an inspiring meetup focused on ga
 **Source:** https://www.fsf.org
 ```
 
-Each event automatically appears in the grid with interaction buttons (share, calendar, tags).
-
----
+> 💡 **Tip:** Once saved, the event will automatically appear in the grid and be included in the **iCal calendar feed** – no extra steps needed.
 
 ## 🚀 Deployment
 
