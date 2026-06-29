@@ -4,15 +4,17 @@ PRODID:-//Place//OSSCAMEROON//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 {{- range sort .Pages "Date" "asc" }}
-{{- $active := false }}
-{{- if .Params.end_date }}
-  {{- if ge (time .Params.end_date) now }}{{ $active = true }}{{ end }}
-{{- else }}
-  {{- if ge .Date now }}{{ $active = true }}{{ end }}
-{{- end }}
+{{- $active := true }}
+{{- /* TODO: Should us send only active events? */ -}}
+{{- /* {{- $active := false }} */ -}}
+{{- /* {{- if .Params.end_date }} */ -}}
+{{- /*   {{- if ge (time .Params.end_date) now }}{{ $active = true }}{{ end }} */ -}}
+{{- /* {{- else }} */ -}}
+{{- /*   {{- if ge .Date now }}{{ $active = true }}{{ end }} */ -}}
+{{- /* {{- end }} */ -}}
 {{- if $active }}
 BEGIN:VEVENT
-UID:{{ md5 (printf "%s-%s" .Params.title (.Date.Format "2006-01-02")) }}
+UID:{{ md5 (printf "%s-%s" .Params.slug (.Date.Format "2006-01-02")) }}
 DTSTAMP:{{ now.UTC.Format "20060102T150405Z" }}
 DTSTART:{{ .Date.UTC.Format "20060102T150405Z" }}
 {{- if .Params.end_date }}
